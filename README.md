@@ -32,10 +32,9 @@ If you are not familiar testing React components, please have a look at [Jest do
 
 ## Bonus tasks:
 Although we accept that the challange is complete without bonus tasks, we would be appreciated if you could do the following:
-- Building components in Storybook
+- Building & documenting components in Storybook
 - Responsiveness
 - Deployment of the code challange to any provider (e.g. Netlify, Heroku, AWS, etc.)
-- Documentation
 
 ## Your contribution
 Please find two things to improve in the code challange.
