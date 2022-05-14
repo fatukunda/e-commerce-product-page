@@ -6,7 +6,7 @@ import minusIcon from "src/assets/images/minus.svg";
 import { IProduct, IVariant } from "src/models/Product";
 import { useAppSelector, useAppDispatch } from "src/store/hooks";
 import { addToCart, ICartItem } from "src/store/slices/cartSlice";
-import QrCode from "src/components/QrCode";
+// import QrCode from "src/components/QrCode";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
@@ -91,9 +91,9 @@ const Product = () => {
               </button>
             ))}
         </div>
-        <div>
+        {/* <div>
           <QrCode url={pdct.url} />
-        </div>
+        </div> */}
       </div>
       <div className="space-y-4 md:flex md:items-center md:gap-4 md:space-y-0">
         <div className="flex w-full items-center justify-between rounded-lg bg-secondary-dark p-3 md:basis-8/12 ">

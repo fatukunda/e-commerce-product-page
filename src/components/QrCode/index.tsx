@@ -9,34 +9,33 @@ const QrCode = ({ url }: IQrcodeProps) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const getQrCode = async () => {
+      const bodyParameters = {
+        colorDark: "rgb(5,64,128)",
+        qrCategory: "url",
+        text: url,
+      };
+      try {
+        setLoading(true);
+        const res = await fetch("https://qrtiger.com/api/qr/static", {
+          method: "POST",
+          body: JSON.stringify(bodyParameters),
+          headers: {
+            Authorization: "Bearer f0125bf0-d367-11ec-8627-0df3976ed517",
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        });
+        const data = await res.json();
+        setResponse(data.url);
+      } catch (err: any) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
     getQrCode();
   }, []);
-
-  const getQrCode = async () => {
-    const bodyParameters = {
-      colorDark: "rgb(5,64,128)",
-      qrCategory: "url",
-      text: url,
-    };
-    try {
-      setLoading(true);
-      const res = await fetch("https://qrtiger.com/api/qr/static", {
-        method: "POST",
-        body: JSON.stringify(bodyParameters),
-        headers: {
-          Authorization: "Bearer f0125bf0-d367-11ec-8627-0df3976ed517",
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      const data = await res.json();
-      setResponse(data.url);
-    } catch (err: any) {
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   if (loading) {
     return (
