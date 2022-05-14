@@ -9,8 +9,8 @@ export interface IVariant {
   fulfillment_service: string;
   inventory_management: string;
   option1: string;
-  option2?: string;
-  option3?: string;
+  option2?: string | null | undefined;
+  option3?: string | null | undefined;
   created_at: string;
   updated_at: string;
   taxable: boolean;

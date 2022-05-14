@@ -48,7 +48,7 @@ const Slider = () => {
         />
       </button>
 
-      <div className="hidden md:my-8 md:flex md:w-full md:items-center md:justify-evenly lg:justify-between">
+      <div className="hidden md:my-8 md:flex md:w-full md:items-center md:justify-evenly lg:justify-evenly">
         {images.map((image) => (
           <div
             key={image.id}

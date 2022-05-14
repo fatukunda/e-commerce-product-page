@@ -3,15 +3,14 @@ import Button from "src/components/Button";
 
 import plusIcon from "src/assets/images/plus.svg";
 import minusIcon from "src/assets/images/minus.svg";
-import { IProduct } from "src/models/Product";
+import { IProduct, IVariant } from "src/models/Product";
 import { useAppSelector, useAppDispatch } from "src/store/hooks";
-import {
-  addToCart,
-  ICartItem,
-} from "src/store/slices/cartSlice";
+import { addToCart, ICartItem } from "src/store/slices/cartSlice";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState<IVariant>();
+  const [priceVisible, setPriceVisible] = useState<boolean>(false);
   const pdct: IProduct = useAppSelector((state) => state.product.product);
   const dispatch = useAppDispatch();
 
@@ -22,12 +21,28 @@ const Product = () => {
   };
 
   const addItemsToCart = () => {
+    if (pdct && selectedVariant) {
       const cartItem: ICartItem = {
-          product: pdct,
-          quantity
-      }
-      dispatch(addToCart(cartItem))
-  }
+        product: pdct,
+        variant: selectedVariant,
+        quantity,
+      };
+      dispatch(addToCart(cartItem));
+    }
+  };
+  const setVariant = (variant: IVariant) => {
+    setSelectedVariant(variant);
+    setPriceVisible(true);
+  };
+
+  const salePercent = () => {
+    return (
+      (100 *
+        (Number(selectedVariant?.compare_at_price) -
+          Number(selectedVariant?.price))) /
+      Number(selectedVariant?.compare_at_price)
+    ).toFixed(2);
+  };
 
   return (
     <div className="px-6 py-4 pb-20 lg:max-w-lg">
@@ -40,19 +55,41 @@ const Product = () => {
       </h1>
 
       <p className="mb-6 max-w-md text-tertiary-light">{pdct.body_html}</p>
-
-      <div className="mb-5 flex items-center justify-between md:justify-start md:gap-8 lg:mb-8 lg:flex-col lg:items-start lg:gap-2">
-        <div className="flex items-center gap-4">
-          <span className="text-3xl font-bold">$125.00</span>
-          <span className="rounded-md bg-secondary px-2 font-bold text-primary">
-            50%
+      {priceVisible && (
+        <div className="mb-5 flex items-center justify-between md:justify-start md:gap-8 lg:mb-8 lg:flex-col lg:items-start lg:gap-2">
+          <div className="flex items-center gap-4">
+            <span className="text-3xl font-bold">
+              {" "}
+              €{selectedVariant?.price}
+            </span>
+            <span className="rounded-md bg-secondary px-2 font-bold text-primary">
+              {salePercent()}%
+            </span>
+          </div>
+          <span className="font-bold text-tertiary-dark">
+            <s>€{selectedVariant?.compare_at_price}</s>
           </span>
         </div>
-        <span className="font-bold text-tertiary-dark">
-          <s>$250.00</s>
-        </span>
+      )}
+      {/* Variants */}
+      <div className="space-y-4 md:flex md:items-center md:gap-4 md:space-y-0">
+        <div className="flex w-full items-center justify-between rounded-lg p-3 md:basis-6/12 mb-6 ">
+          {pdct.variants &&
+            pdct.variants.map((variant) => (
+              <button
+                onClick={() => setVariant(variant)}
+                key={variant.id}
+                className={`bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4  border ${
+                  variant.id === selectedVariant?.id
+                    ? "border-primary"
+                    : "border-gray-400"
+                } rounded shadow`}
+              >
+                {variant.title}
+              </button>
+            ))}
+        </div>
       </div>
-
       <div className="space-y-4 md:flex md:items-center md:gap-4 md:space-y-0">
         <div className="flex w-full items-center justify-between rounded-lg bg-secondary-dark p-3 md:basis-8/12 ">
           <button

@@ -24,8 +24,8 @@ const Cart: FunctionComponent = (): JSX.Element => {
           </span>
         ) : (
           <div>
-            {cartItems.map((item) => (
-              <div key={item.product.id} className="mb-6 flex items-center gap-4">
+            {cartItems.map((item, idx) => (
+              <div key={idx} className="mb-6 flex items-center gap-4">
                 <img
                   src={item.product.image.src}
                   alt={item.product.title}
@@ -35,16 +35,17 @@ const Cart: FunctionComponent = (): JSX.Element => {
                 <div className="mr-auto flex flex-col font-bold text-tertiary-dark">
                   <span>{item.product.title}</span>
                   <span className="font-normal">
-                    €{125} x {item.quantity}{" "}
+                  <span className="pr-2">{item.variant.title}</span>
+                    €{item.variant.price} x {item.quantity}{" "}
                     <span className="font-bold text-tertiary">
-                      ${(125 * item.quantity).toFixed(2)}
+                      ${(Number(item.variant.price) * item.quantity).toFixed(2)}
                     </span>
                   </span>
                 </div>
 
                 <button
                   type="button"
-                  onClick={() => dispatch(removeFromCart({ id: item.product.id }))}
+                  onClick={() => dispatch(removeFromCart(item))}
                 >
                   <img src={deleteIcon} alt="delete" />
                 </button>
