@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button: Snapshot 1`] = `
+<button
+  className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary p-4 font-bold text-white shadow-lg shadow-primary/50 transition-all duration-300 hover:bg-primary/50"
+  data-testid="main-btn"
+  type="button"
+>
+  <span>
+    Test
+  </span>
+</button>
+`;

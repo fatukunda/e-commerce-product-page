@@ -22,6 +22,7 @@ const Slider = () => {
         type="button"
         className="absolute left-4 top-[40%] flex aspect-square w-10 items-center justify-center rounded-full bg-white lg:-left-8 lg:top-[32%] lg:w-20"
         onClick={() => dispatch(getPreviousImage())}
+        data-testid="get-previous-btn"
       >
         <img
           src={prevIcon}
@@ -32,14 +33,16 @@ const Slider = () => {
 
       <img
         src={currentImage.src}
-        alt="shoes"
+        alt="product"
         className="block w-full max-w-full lg:rounded-xl"
+        data-testid="current-image"
       />
 
       <button
         type="button"
         className=" absolute right-4 top-[40%] flex aspect-square w-10 items-center justify-center rounded-full bg-white lg:-right-8 lg:top-[32%] lg:w-20"
         onClick={() => dispatch(getNextImage())}
+        data-testid="get-next-btn"
       >
         <img
           src={nextIcon}
@@ -58,11 +61,12 @@ const Slider = () => {
           >
             <img
               src={image.src}
-              alt="shoes"
+              alt="product"
               className={`w-32 rounded-lg transition-all duration-300 hover:cursor-pointer hover:opacity-40 lg:w-[88px] ${
                 image.id === currentImage.id && "opacity-40"
               }`}
               onClick={() => dispatch(setCurrentImage(image))}
+              data-testid="selected-img"
             />
           </div>
         ))}

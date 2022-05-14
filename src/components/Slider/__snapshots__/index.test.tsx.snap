@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for <Slider/> Slider: Snapshot 1`] = `
+<div
+  className="relative lg:max-w-md"
+>
+  <button
+    className="absolute left-4 top-[40%] flex aspect-square w-10 items-center justify-center rounded-full bg-white lg:-left-8 lg:top-[32%] lg:w-20"
+    data-testid="get-previous-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="previous"
+      className="absolute top-1/2 left-1/2 h-fit max-w-full -translate-x-2 -translate-y-1/2"
+      src="chevron-left.svg"
+    />
+  </button>
+  <img
+    alt="product"
+    className="block w-full max-w-full lg:rounded-xl"
+    data-testid="current-image"
+    src="https://cdn.shopify.com/s/files/1/0095/2274/1329/products/7_252F9_252Fe_252F2_252F79e29bdc358cf46c6f6df40f78ec1cabeda1a36a_21032_Top.jpg?v=1630500085"
+  />
+  <button
+    className=" absolute right-4 top-[40%] flex aspect-square w-10 items-center justify-center rounded-full bg-white lg:-right-8 lg:top-[32%] lg:w-20"
+    data-testid="get-next-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="next"
+      className="fit-w-full absolute top-1/2 left-1/2 h-fit -translate-x-1.5 -translate-y-1/2"
+      src="chevron-right.svg"
+    />
+  </button>
+  <div
+    className="hidden md:my-8 md:flex md:w-full md:items-center md:justify-evenly lg:justify-evenly"
+  >
+    <div
+      className="rounded-xl outline outline-primary"
+    >
+      <img
+        alt="product"
+        className="w-32 rounded-lg transition-all duration-300 hover:cursor-pointer hover:opacity-40 lg:w-[88px] opacity-40"
+        data-testid="selected-img"
+        onClick={[Function]}
+        src="https://cdn.shopify.com/s/files/1/0095/2274/1329/products/7_252F9_252Fe_252F2_252F79e29bdc358cf46c6f6df40f78ec1cabeda1a36a_21032_Top.jpg?v=1630500085"
+      />
+    </div>
+    <div
+      className="rounded-xl false"
+    >
+      <img
+        alt="product"
+        className="w-32 rounded-lg transition-all duration-300 hover:cursor-pointer hover:opacity-40 lg:w-[88px] false"
+        data-testid="selected-img"
+        onClick={[Function]}
+        src="https://cdn.shopify.com/s/files/1/0095/2274/1329/products/a_252F2_252F4_252Ff_252Fa24f85e82f207a80c119cb64b0fa99d3ac4def70_21452.jpg?v=1630500198"
+      />
+    </div>
+  </div>
+</div>
+`;

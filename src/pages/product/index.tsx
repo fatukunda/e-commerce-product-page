@@ -6,6 +6,7 @@ import minusIcon from "src/assets/images/minus.svg";
 import { IProduct, IVariant } from "src/models/Product";
 import { useAppSelector, useAppDispatch } from "src/store/hooks";
 import { addToCart, ICartItem } from "src/store/slices/cartSlice";
+import QrCode from "src/components/QrCode";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
@@ -84,10 +85,14 @@ const Product = () => {
                     ? "border-primary"
                     : "border-gray-400"
                 } rounded shadow`}
+                data-testid="select-variant-btn"
               >
                 {variant.title}
               </button>
             ))}
+        </div>
+        <div>
+          <QrCode url={pdct.url} />
         </div>
       </div>
       <div className="space-y-4 md:flex md:items-center md:gap-4 md:space-y-0">
@@ -96,16 +101,18 @@ const Product = () => {
             type="button"
             onClick={decrementQuantity}
             className="p-3 transition-all duration-300 hover:opacity-50 lg:px-1"
+            data-testid="decreament-quantity-btn"
           >
             <img src={minusIcon} alt="minus" />
           </button>
 
-          <span className="font-bold">{quantity}</span>
+          <span data-testid="quantity-text" className="font-bold">{quantity}</span>
 
           <button
             type="button"
             onClick={() => setQuantity(quantity + 1)}
             className="p-3 transition-all duration-300 hover:opacity-50 lg:px-1"
+            data-testid="increament-quantity-btn"
           >
             <img src={plusIcon} alt="plus" />
           </button>

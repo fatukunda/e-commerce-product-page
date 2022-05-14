@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader: Snapshot 1`] = `
+<footer
+  className="m-4 text-center text-[.6rem] md:m-2 md:text-xs"
+>
+  Challenge by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.nu3.de/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Nu3
+  </a>
+  . Coded by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.frankatukunda.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Frank Atukunda
+  </a>
+</footer>
+`;
+
+exports[`Tests for <AppFooter/> App: Snapshot 1`] = `
+<footer
+  className="m-4 text-center text-[.6rem] md:m-2 md:text-xs"
+>
+  Challenge by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.nu3.de/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Nu3
+  </a>
+  . Coded by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.frankatukunda.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Frank Atukunda
+  </a>
+</footer>
+`;
+
+exports[`Tests for <AppFooter/> AppFooter: Snapshot 1`] = `
+<footer
+  className="m-4 text-center text-[.6rem] md:m-2 md:text-xs"
+>
+  Challenge by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.nu3.de/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Nu3
+  </a>
+  . Coded by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.frankatukunda.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Frank Atukunda
+  </a>
+</footer>
+`;
+
+exports[`Tests for <AppFooter/> AppHeader: Snapshot 1`] = `
+<footer
+  className="m-4 text-center text-[.6rem] md:m-2 md:text-xs"
+>
+  Challenge by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.nu3.de/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Nu3
+  </a>
+  . Coded by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.frankatukunda.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Frank Atukunda
+  </a>
+</footer>
+`;
+
+exports[`Tests for <AppHeader/> AppHeader: Snapshot 1`] = `
+<footer
+  className="m-4 text-center text-[.6rem] md:m-2 md:text-xs"
+>
+  Challenge by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.nu3.de/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Nu3
+  </a>
+  . Coded by
+   
+  <a
+    className="font-bold uppercase text-primary underline transition-all duration-300 hover:text-tertiary"
+    href="https://www.frankatukunda.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Frank Atukunda
+  </a>
+</footer>
+`;

@@ -5,7 +5,6 @@ import menuIcon from "../../assets/images/menu.svg";
 import cartIcon from "../../assets/images/cart.svg";
 import avatar from "../../assets/images/avatar.svg";
 import closeIcon from "../../assets/images/close.svg";
-import { ICartItem } from "src/store/slices/cartSlice";
 import { useAppSelector } from "src/store/hooks";
 
 import Cart from "../Cart";
@@ -14,7 +13,7 @@ export const AppHeader: FunctionComponent = (): JSX.Element => {
   const itemCount: number = useAppSelector((state) => state.cart.itemCount);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems = ["Home", "Product"];
+  const navItems = ["Home"];
   const navItemsDisplay = navItems.map((item) => (
     <li
       key={item}
@@ -31,8 +30,14 @@ export const AppHeader: FunctionComponent = (): JSX.Element => {
           onClick={() => setIsMenuOpen(false)}
           className="z-30"
           aria-label="Close"
+          data-testid="menu-close-btn"
         >
-          <img src={closeIcon} alt="close" className="mt-1.5 w-4 lg:hidden" />
+          <img
+            src={closeIcon}
+            alt="close"
+            className="mt-1.5 w-4 lg:hidden"
+            data-testid="closeIcon"
+          />
         </button>
       ) : (
         <button
@@ -40,6 +45,7 @@ export const AppHeader: FunctionComponent = (): JSX.Element => {
           onClick={() => setIsMenuOpen(true)}
           className="z-30"
           aria-label="Hamburger"
+          data-testid="menu-open-btn"
         >
           <img
             src={menuIcon}
@@ -67,7 +73,11 @@ export const AppHeader: FunctionComponent = (): JSX.Element => {
 
       <div className="flex items-center gap-4 lg:gap-8">
         <div className="relative">
-          <button type="button" onClick={() => setIsCartOpen(!isCartOpen)}>
+          <button
+            data-testid="cart-open-btn"
+            type="button"
+            onClick={() => setIsCartOpen(!isCartOpen)}
+          >
             <img src={cartIcon} alt="cart" className="w-6" />
           </button>
 

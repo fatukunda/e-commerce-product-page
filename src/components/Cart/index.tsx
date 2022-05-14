@@ -14,7 +14,7 @@ const Cart: FunctionComponent = (): JSX.Element => {
   return (
     <div className="absolute top-[70px] left-1/2 z-10 w-[95%] max-w-md -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20 md:-translate-x-16 lg:top-28 lg:right-0 lg:w-96 lg:translate-x-56">
       <span className="border-secondary-dark-dark block border-b border-solid p-6 font-bold">
-        Cart
+        Your shopping Cart
       </span>
 
       <div className={`w-full ${!itemCount ? "py-20" : "p-6"}`}>
@@ -35,15 +35,16 @@ const Cart: FunctionComponent = (): JSX.Element => {
                 <div className="mr-auto flex flex-col font-bold text-tertiary-dark">
                   <span>{item.product.title}</span>
                   <span className="font-normal">
-                  <span className="pr-2">{item.variant.title}</span>
-                    €{item.variant.price} x {item.quantity}{" "}
+                    <span className="pr-2">{item.variant.title}</span>€
+                    {item.variant.price} x {item.quantity}{" "}
                     <span className="font-bold text-tertiary">
-                      ${(Number(item.variant.price) * item.quantity).toFixed(2)}
+                      €{(Number(item.variant.price) * item.quantity).toFixed(2)}
                     </span>
                   </span>
                 </div>
 
                 <button
+                  data-testid="delete-btn"
                   type="button"
                   onClick={() => dispatch(removeFromCart(item))}
                 >

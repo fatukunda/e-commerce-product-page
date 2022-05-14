@@ -1,11 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppHeader: Snapshot 1`] = `
-<header
-  className="App-Header"
+exports[`Tests for <AppHeader/> AppHeader: Snapshot 1`] = `
+<nav
+  className="flex w-full items-center gap-4 bg-white px-6 py-4 lg:gap-0 lg:border-b-2 lg:border-secondary-dark lg:px-0 lg:pt-6 lg:pb-0"
 >
-  <h1>
-    Demo Header
-  </h1>
-</header>
+  <button
+    aria-label="Hamburger"
+    className="z-30"
+    data-testid="menu-open-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="hamburger"
+      className="mt-1.5 w-4 lg:hidden"
+      src="menu.svg"
+    />
+  </button>
+  <img
+    alt="nu3"
+    className="mr-auto md:mx-0"
+    src="logo.svg"
+  />
+  <div
+    className="mr-auto lg:ml-12"
+  >
+    <ul
+      className="hidden  text-tertiary-light lg:flex lg:gap-6"
+    >
+      <li
+        className="lg:border-b-4 lg:border-transparent lg:py-10 lg:transition-all lg:duration-300 lg:hover:cursor-pointer lg:hover:border-b-4 lg:hover:border-primary lg:hover:text-tertiary"
+      >
+        Home
+      </li>
+    </ul>
+  </div>
+  <div
+    className="flex items-center gap-4 lg:gap-8"
+  >
+    <div
+      className="relative"
+    >
+      <button
+        data-testid="cart-open-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="cart"
+          className="w-6"
+          src="cart.svg"
+        />
+      </button>
+      <span
+        className="absolute -top-1 -right-1.5 inline-block rounded-full bg-primary px-2 text-center text-[8px] text-white"
+      >
+        1
+      </span>
+    </div>
+    <img
+      alt="avatar"
+      className="w-6 rounded-full hover:cursor-pointer hover:outline hover:outline-1 hover:outline-primary md:w-8 lg:w-10"
+      src="avatar.svg"
+    />
+  </div>
+</nav>
 `;
