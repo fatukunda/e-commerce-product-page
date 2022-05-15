@@ -8,16 +8,21 @@ import closeIcon from "../../assets/images/close.svg";
 import { useAppSelector } from "src/store/hooks";
 
 import Cart from "../Cart";
+import AppSearch from "../AppSearch";
+import SearchResult from "../SearchResult";
 
 export const AppHeader: FunctionComponent = (): JSX.Element => {
   const itemCount: number = useAppSelector((state) => state.cart.itemCount);
+  const isSearchActive: boolean = useAppSelector(
+    (state) => state.search.isSearchActive
+  );
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = ["Home"];
   const navItemsDisplay = navItems.map((item) => (
     <li
       key={item}
-      className="lg:border-b-4 lg:border-transparent lg:py-10 lg:transition-all lg:duration-300 lg:hover:cursor-pointer lg:hover:border-b-4 lg:hover:border-primary lg:hover:text-tertiary"
+      className="lg:border-b-4 lg:border-transparent lg:pb-2 lg:transition-all lg:duration-300 lg:hover:cursor-pointer lg:hover:border-b-4 lg:hover:border-primary lg:hover:text-tertiary"
     >
       {item}
     </li>
@@ -65,12 +70,14 @@ export const AppHeader: FunctionComponent = (): JSX.Element => {
 
       <img src={logo} alt="nu3" className="mr-auto md:mx-0" />
 
-      <div className="mr-auto lg:ml-12">
-        <ul className="hidden  text-tertiary-light lg:flex lg:gap-6">
+      <div className="mr-auto lg:ml-12 w-5/6">
+        <ul className="hidden  text-tertiary-light lg:flex items-center lg:gap-6">
           {navItemsDisplay}
+          <li className="lg:border-b-4 lg:border-transparent lg:pb-2 w-5/6 ">
+            <AppSearch />
+          </li>
         </ul>
       </div>
-
       <div className="flex items-center gap-4 lg:gap-8">
         <div className="relative">
           <button
@@ -96,6 +103,7 @@ export const AppHeader: FunctionComponent = (): JSX.Element => {
       </div>
 
       {isCartOpen && <Cart />}
+      {isSearchActive && <SearchResult />}
     </nav>
   );
 };

@@ -9,10 +9,10 @@ const headers = {
 export const searchProduct = async (
   searchTerm: string
 ): Promise<ISearchItem[]> => {
-  const data = await fetch(`${baseUrl}/searchItems?title_like=${searchTerm}`, {
+  const res = await fetch(`${baseUrl}/searchItems?title_like=${searchTerm}`, {
     headers,
   });
-  return data.json();
+  return res.json()
 };
 
 export const sortAlphabetically = async (): Promise<ISearchItem[]> => {

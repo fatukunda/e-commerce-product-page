@@ -23,15 +23,52 @@ exports[`Tests for <AppHeader/> AppHeader: Snapshot 1`] = `
     src="logo.svg"
   />
   <div
-    className="mr-auto lg:ml-12"
+    className="mr-auto lg:ml-12 w-5/6"
   >
     <ul
-      className="hidden  text-tertiary-light lg:flex lg:gap-6"
+      className="hidden  text-tertiary-light lg:flex items-center lg:gap-6"
     >
       <li
-        className="lg:border-b-4 lg:border-transparent lg:py-10 lg:transition-all lg:duration-300 lg:hover:cursor-pointer lg:hover:border-b-4 lg:hover:border-primary lg:hover:text-tertiary"
+        className="lg:border-b-4 lg:border-transparent lg:pb-2 lg:transition-all lg:duration-300 lg:hover:cursor-pointer lg:hover:border-b-4 lg:hover:border-primary lg:hover:text-tertiary"
       >
         Home
+      </li>
+      <li
+        className="lg:border-b-4 lg:border-transparent lg:pb-2 w-5/6 "
+      >
+        <form>
+          <div
+            className="relative"
+          >
+            <div
+              className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+            >
+              <svg
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
+            <input
+              className="block p-4 pl-10 w-full text-md text-tertiary-light bg-gray-50 rounded-lg border border-gray-300 focus:ring-0 focus:outline-none"
+              id="default-search"
+              onChange={[Function]}
+              placeholder="Search Products"
+              required={true}
+              type="search"
+              value=""
+            />
+          </div>
+        </form>
       </li>
     </ul>
   </div>
