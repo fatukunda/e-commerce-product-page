@@ -1,12 +1,7 @@
-import React, {
-  FunctionComponent,
-  useEffect,
-  useState,
-} from "react";
-import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import { useAppDispatch } from "src/store/hooks";
 import { setSearchActive, setProducts } from "src/store/slices/searchSlice";
 import { searchProduct } from "src/services/searchService";
-import { ISearchItem } from "src/models/SearchResult";
 
 const AppSearch: FunctionComponent = (): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,19 +10,18 @@ const AppSearch: FunctionComponent = (): JSX.Element => {
     let term = event.target.value;
     setSearchTerm(term);
   };
-  const fetchItems = async () => {
-      const res = await searchProduct(searchTerm)
-      dispatch(setProducts(res))
-  }
   useEffect(() => {
     if (searchTerm.length > 1) {
       dispatch(setSearchActive(true));
-      fetchItems()
-
+      const fetchItems = async () => {
+        const res = await searchProduct(searchTerm);
+        dispatch(setProducts(res));
+      };
+      fetchItems();
     } else {
       dispatch(setSearchActive(false));
     }
-  }, [searchTerm]);
+  }, [searchTerm, dispatch]);
   return (
     <form>
       <div className="relative">
