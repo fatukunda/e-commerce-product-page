@@ -21,7 +21,7 @@ const QrCode = ({ url }: IQrcodeProps) => {
           method: "POST",
           body: JSON.stringify(bodyParameters),
           headers: {
-            Authorization: "Bearer f0125bf0-d367-11ec-8627-0df3976ed517",
+            Authorization: `Bearer ${process.env.REACT_APP_QR_CODE_TOKEN}`,
             "Content-Type": "application/json",
             Accept: "application/json",
           },
