@@ -1,6 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useAppDispatch } from "src/store/hooks";
-import { setSearchActive, setProducts } from "src/store/slices/searchSlice";
+import {
+  setSearchActive,
+  setProducts,
+  setIsSearching,
+} from "src/store/slices/searchSlice";
 import { searchProduct } from "src/services/searchService";
 
 const AppSearch: FunctionComponent = (): JSX.Element => {
@@ -14,7 +18,9 @@ const AppSearch: FunctionComponent = (): JSX.Element => {
     if (searchTerm.length > 1) {
       dispatch(setSearchActive(true));
       const fetchItems = async () => {
+        dispatch(setIsSearching(true));
         const res = await searchProduct(searchTerm);
+        dispatch(setIsSearching(false));
         dispatch(setProducts(res));
       };
       fetchItems();

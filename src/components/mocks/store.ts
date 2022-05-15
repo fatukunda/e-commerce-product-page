@@ -301,7 +301,8 @@ export const initialStoreState: RootState = {
   },
   search: {
     isSearchActive: false,
-    items: []
+    items: [],
+    isSearching: false
   }
 };
 const mockStore = () =>

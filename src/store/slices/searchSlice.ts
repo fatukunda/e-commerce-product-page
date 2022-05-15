@@ -4,11 +4,13 @@ import { ISearchItem } from "src/models/SearchResult";
 interface ISearchState {
   isSearchActive: boolean;
   items: ISearchItem[];
+  isSearching: boolean
 }
 
 const initialState: ISearchState = {
   isSearchActive: false,
   items: [],
+  isSearching: false
 };
 
 export const searchSlice = createSlice({
@@ -21,9 +23,12 @@ export const searchSlice = createSlice({
     setProducts: (state, action: PayloadAction<ISearchItem[]>) => {
       state.items = action.payload;
     },
+    setIsSearching: (state, action: PayloadAction<boolean>) => {
+        state.isSearching = action.payload;
+      },
   },
 });
 
-export const { setSearchActive, setProducts } = searchSlice.actions;
+export const { setSearchActive, setProducts, setIsSearching } = searchSlice.actions;
 
 export default searchSlice.reducer;
