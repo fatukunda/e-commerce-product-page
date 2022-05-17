@@ -2,7 +2,7 @@
 
 exports[`Tests for <Cart/> AppHeader: Snapshot 1`] = `
 <div
-  className="absolute top-[70px] left-1/2 z-10 w-[95%] max-w-md -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20 md:-translate-x-16 lg:top-28 lg:right-0 lg:w-96 lg:translate-x-56"
+  className="absolute top-[70px] overflow-auto left-1/2 z-10 w-[95%] max-w-md -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20 md:-translate-x-16 lg:top-28 lg:right-0 lg:w-96 lg:translate-x-56"
 >
   <span
     className="border-secondary-dark-dark block border-b border-solid p-6 font-bold"
