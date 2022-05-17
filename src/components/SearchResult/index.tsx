@@ -1,9 +1,11 @@
-import React, { FunctionComponent } from "react";
+import { FunctionComponent } from "react";
+import Filter from "../Filter";
 
 import ItemCard from "../ItemCard";
 
 import { useAppSelector } from "src/store/hooks";
 import { ISearchItem } from "src/models/SearchResult";
+import Menu from "../Menu/Menu";
 
 const SearchResult: FunctionComponent = (): JSX.Element => {
   const searchedItems: ISearchItem[] = useAppSelector(
@@ -14,10 +16,14 @@ const SearchResult: FunctionComponent = (): JSX.Element => {
   );
 
   return (
-    <div className="absolute overflow-auto top-[70px] h-2/3 left-1/2 z-10 w-2/3  -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20  lg:top-24 lg:right-0 ">
-      <span className="border-secondary-dark-dark block border-b border-solid p-6 font-bold">
-        Your search results
-      </span>
+    <Menu classList="h-2/3 left-1/2 z-10 w-2/3  -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20  lg:top-24 lg:right-0 ">
+      <div className="flex border-secondary-dark-dark block border-b border-solid p-6 font-bold items-center justify-between">
+        <span className="block font-bold ">Your search results</span>
+        <div>
+          <Filter />
+        </div>
+      </div>
+
       {!isSearching ? (
         <div className="p-4 flex gap-2 flex-wrap justify-center">
           {searchedItems.length ? (
@@ -50,7 +56,7 @@ const SearchResult: FunctionComponent = (): JSX.Element => {
           </svg>
         </div>
       )}
-    </div>
+    </Menu>
   );
 };
 

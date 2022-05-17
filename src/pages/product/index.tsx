@@ -6,13 +6,12 @@ import minusIcon from "src/assets/images/minus.svg";
 import { IProduct, IVariant } from "src/models/Product";
 import { useAppSelector, useAppDispatch } from "src/store/hooks";
 import { addToCart, ICartItem } from "src/store/slices/cartSlice";
-// import QrCode from "src/components/QrCode";
+import QrCode from "src/components/QrCode";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
-  const [selectedVariant, setSelectedVariant] = useState<IVariant>();
-  const [priceVisible, setPriceVisible] = useState<boolean>(false);
   const pdct: IProduct = useAppSelector((state) => state.product.product);
+  const [selectedVariant, setSelectedVariant] = useState<IVariant>(pdct.variants[0]);
   const dispatch = useAppDispatch();
 
   const decrementQuantity = () => {
@@ -33,7 +32,6 @@ const Product = () => {
   };
   const setVariant = (variant: IVariant) => {
     setSelectedVariant(variant);
-    setPriceVisible(true);
   };
 
   const salePercent = () => {
@@ -56,7 +54,6 @@ const Product = () => {
       </h1>
 
       <p className="mb-6 max-w-md text-tertiary-light">{pdct.body_html}</p>
-      {priceVisible && (
         <div className="mb-5 flex items-center justify-between md:justify-start md:gap-8 lg:mb-8 lg:flex-col lg:items-start lg:gap-2">
           <div className="flex items-center gap-4">
             <span className="text-3xl font-bold">
@@ -71,7 +68,6 @@ const Product = () => {
             <s>€{selectedVariant?.compare_at_price}</s>
           </span>
         </div>
-      )}
       {/* Variants */}
       <div className="space-y-4 md:flex md:items-center md:gap-4 md:space-y-0">
         <div className="flex w-full items-center justify-between rounded-lg p-3 md:basis-6/12 mb-6 ">
@@ -91,9 +87,9 @@ const Product = () => {
               </button>
             ))}
         </div>
-        {/* <div>
+        <div>
           <QrCode url={pdct.url} />
-        </div> */}
+        </div>
       </div>
       <div className="space-y-4 md:flex md:items-center md:gap-4 md:space-y-0">
         <div className="flex w-full items-center justify-between rounded-lg bg-secondary-dark p-3 md:basis-8/12 ">

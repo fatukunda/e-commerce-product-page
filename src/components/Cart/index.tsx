@@ -4,6 +4,7 @@ import Button from "../Button";
 import deleteIcon from "../../assets/images/trash.svg";
 import { ICartItem } from "src/store/slices/cartSlice";
 import { removeFromCart } from "src/store/slices/cartSlice";
+import Menu from "../Menu/Menu";
 
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 
@@ -12,7 +13,7 @@ const Cart: FunctionComponent = (): JSX.Element => {
   const cartItems: ICartItem[] = useAppSelector((state) => state.cart.items);
   const itemCount: number = useAppSelector((state) => state.cart.itemCount);
   return (
-    <div className="absolute top-[70px] left-1/2 z-10 w-[95%] max-w-md -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20 md:-translate-x-16 lg:top-28 lg:right-0 lg:w-96 lg:translate-x-56">
+    <Menu classList="left-1/2 z-10 w-[95%] max-w-md -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20 md:-translate-x-16 lg:top-28 lg:right-0 lg:w-96 lg:translate-x-56">
       <span className="border-secondary-dark-dark block border-b border-solid p-6 font-bold">
         Your shopping Cart
       </span>
@@ -59,7 +60,7 @@ const Cart: FunctionComponent = (): JSX.Element => {
           </div>
         )}
       </div>
-    </div>
+    </Menu>
   );
 };
 
