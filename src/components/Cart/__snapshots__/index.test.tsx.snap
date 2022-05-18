@@ -60,8 +60,10 @@ exports[`Tests for <Cart/> AppHeader: Snapshot 1`] = `
         </button>
       </div>
       <button
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary p-4 font-bold text-white shadow-lg shadow-primary/50 transition-all duration-300 hover:bg-primary/50"
-        data-testid="main-btn"
+        className="flex w-full items-center justify-center gap-2 rounded-lg 
+            bg-primary p-4 font-bold text-white shadow-lg shadow-primary/50 
+            transition-all duration-300 hover:bg-primary/50 py-3 px-6 text-lg undefined"
+        onClick={[Function]}
         type="button"
       >
         <span>

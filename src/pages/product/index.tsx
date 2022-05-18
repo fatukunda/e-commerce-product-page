@@ -72,18 +72,20 @@ const Product = () => {
         <div className="flex w-full items-center justify-between rounded-lg p-3 md:basis-6/12 mb-6 ">
           {pdct.variants &&
             pdct.variants.map((variant) => (
-              <button
-                onClick={() => setVariant(variant)}
+              <Button
                 key={variant.id}
-                className={`bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4  border ${
+                title="select-variant-btn"
+                type="outline"
+                size="sm"
+                handleClick={() => setVariant(variant)}
+                classString={`${
                   variant.id === selectedVariant?.id
                     ? "border-primary"
                     : "border-gray-400"
-                } rounded shadow`}
-                data-testid="select-variant-btn"
+                }`}
               >
                 {variant.title}
-              </button>
+              </Button>
             ))}
         </div>
         <div>
@@ -115,7 +117,13 @@ const Product = () => {
           </button>
         </div>
 
-        <Button type="primary" size="lg" handleClick={addItemsToCart}>
+        <Button
+          data-testid="add-to-cart-btn"
+          type="primary"
+          size="lg"
+          handleClick={addItemsToCart}
+          title="add-to-cart-btn"
+        >
           <svg
             width="21"
             height="22"

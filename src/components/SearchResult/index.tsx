@@ -18,7 +18,7 @@ const SearchResult: FunctionComponent = (): JSX.Element => {
   const isSearching: boolean = useAppSelector(
     (state) => state.search.isSearching
   );
-  const searchOptions = [
+  const searchOptions: IOption[] = [
     {
       id: 1,
       name: "Random",
@@ -67,8 +67,8 @@ const SearchResult: FunctionComponent = (): JSX.Element => {
         sortOption = "price-low-high";
       } else if (selectedOption.name === "Price High to Low") {
         sortOption = "price-high-low";
-      }else {
-        sortOption = 'Random'
+      } else {
+        sortOption = "Random";
       }
       dispatch(setIsSearching(true));
       const res = await sort(sortOption);

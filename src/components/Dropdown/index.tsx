@@ -20,11 +20,14 @@ const Dropdown = ({
   isOpen,
   toggleOpen,
 }: IFilterProps): JSX.Element => {
+  const dropdownClass = `flex bg-white items-center justify-between 
+  btn-sm w-48 text-xs hover:bg-gray-100 text-tertiary-light font-semibold 
+  py-2 px-4  border border-tertiary-light rounded shadow`;
   return (
     <div className="flex flex-col w-48">
       <button
         onClick={() => toggleOpen()}
-        className=" flex bg-white items-center justify-between btn-sm w-48 text-xs hover:bg-gray-100 text-tertiary-light font-semibold py-2 px-4  border border-tertiary-light rounded shadow"
+        className={dropdownClass}
         data-testid="select-filter-btn"
       >
         <span>{selectedItem.name}</span>

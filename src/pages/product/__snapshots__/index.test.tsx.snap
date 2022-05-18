@@ -28,8 +28,7 @@ exports[`Tests for <Product/> Product: Snapshot 1`] = `
       <span
         className="text-3xl font-bold"
       >
-         
-        €
+         €
         18.99
       </span>
       <span
@@ -55,16 +54,18 @@ exports[`Tests for <Product/> Product: Snapshot 1`] = `
       className="flex w-full items-center justify-between rounded-lg p-3 md:basis-6/12 mb-6 "
     >
       <button
-        className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4  border border-primary rounded shadow"
-        data-testid="select-variant-btn"
+        className="bg-white rounded shadow hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border py-2 px-4 border-primary"
         onClick={[Function]}
+        title="select-variant-btn"
+        type="button"
       >
         150 g
       </button>
       <button
-        className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4  border border-gray-400 rounded shadow"
-        data-testid="select-variant-btn"
+        className="bg-white rounded shadow hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border py-2 px-4 border-gray-400"
         onClick={[Function]}
+        title="select-variant-btn"
+        type="button"
       >
         3 x 150 g
       </button>
@@ -122,9 +123,11 @@ exports[`Tests for <Product/> Product: Snapshot 1`] = `
       </button>
     </div>
     <button
-      className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary p-4 font-bold text-white shadow-lg shadow-primary/50 transition-all duration-300 hover:bg-primary/50"
-      data-testid="main-btn"
+      className="flex w-full items-center justify-center gap-2 rounded-lg 
+            bg-primary p-4 font-bold text-white shadow-lg shadow-primary/50 
+            transition-all duration-300 hover:bg-primary/50 py-3 px-6 text-lg undefined"
       onClick={[Function]}
+      title="add-to-cart-btn"
       type="button"
     >
       <svg

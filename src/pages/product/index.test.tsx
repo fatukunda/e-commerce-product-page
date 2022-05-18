@@ -28,8 +28,8 @@ describe("Tests for <Product/>", () => {
   });
 
   it("Selects a variant", () => {
-    const { getAllByTestId, getByText } = renderProduct();
-    const selectVariantBtns = getAllByTestId("select-variant-btn");
+    const { getAllByTitle, getByText } = renderProduct();
+    const selectVariantBtns = getAllByTitle("select-variant-btn");
     fireEvent.click(selectVariantBtns[0]);
     expect(getByText("€18.99")).toBeInTheDocument();
   });
@@ -59,9 +59,9 @@ describe("Tests for <Product/>", () => {
   });
 
   it("adds to cart", () => {
-    const { getByTestId, getByText, getAllByTestId } = renderProduct();
-    const addToCart = getByTestId("main-btn");
-    const selectVariantBtns = getAllByTestId("select-variant-btn");
+    const { getByText, getByTitle, getAllByTitle } = renderProduct();
+    const addToCart = getByTitle("add-to-cart-btn");
+    const selectVariantBtns = getAllByTitle("select-variant-btn");
     fireEvent.click(selectVariantBtns[0]);
     expect(getByText("€18.99")).toBeInTheDocument();
     fireEvent.click(addToCart);

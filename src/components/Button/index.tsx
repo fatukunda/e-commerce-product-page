@@ -2,10 +2,12 @@ import React, { FunctionComponent } from "react";
 import { ButtonType, ButtonSize } from "src/theme";
 
 export interface ButtonProps {
-  children: JSX.Element | JSX.Element[];
+  children: any;
   handleClick: () => void;
   size: string;
   type: string;
+  classString?: string
+  title?: string
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
@@ -13,14 +15,16 @@ const Button: FunctionComponent<ButtonProps> = ({
   handleClick,
   size,
   type,
+  classString,
+  title
 }): JSX.Element => {
-  const classNames = `${ButtonType[type]} ${ButtonSize[size]}`
+  const classNames = `${ButtonType[type]} ${ButtonSize[size]} ${classString}`
   return (
     <button
       type="button"
       className={classNames}
       onClick={handleClick}
-      data-testid="main-btn"
+      title={title}
     >
       {children}
     </button>
