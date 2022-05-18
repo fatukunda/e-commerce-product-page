@@ -1,25 +1,25 @@
 import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import Button from "./";
 
 const renderButton = () =>
   render(
-    <Button>
+    <Button type="primary" handleClick={() => jest.fn()} size="small">
       <span>Click me!</span>
     </Button>
   );
-describe('Tests for <Button/>', () => {
-    afterEach(cleanup)
+describe("Tests for <Button/>", () => {
+  afterEach(cleanup);
 
-    it('renders without crashing', () => {
-        renderButton()
-    })
-})
+  it("renders without crashing", () => {
+    renderButton();
+  });
+});
 
 test("Button: Snapshot", () => {
   const component = renderer.create(
-    <Button>
+    <Button handleClick={() => jest.fn()} type="primary" size="small">
       <span>Test</span>
     </Button>
   );

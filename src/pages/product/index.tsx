@@ -11,7 +11,9 @@ import QrCode from "src/components/QrCode";
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const pdct: IProduct = useAppSelector((state) => state.product.product);
-  const [selectedVariant, setSelectedVariant] = useState<IVariant>(pdct.variants[0]);
+  const [selectedVariant, setSelectedVariant] = useState<IVariant>(
+    pdct.variants[0]
+  );
   const dispatch = useAppDispatch();
 
   const decrementQuantity = () => {
@@ -54,20 +56,17 @@ const Product = () => {
       </h1>
 
       <p className="mb-6 max-w-md text-tertiary-light">{pdct.body_html}</p>
-        <div className="mb-5 flex items-center justify-between md:justify-start md:gap-8 lg:mb-8 lg:flex-col lg:items-start lg:gap-2">
-          <div className="flex items-center gap-4">
-            <span className="text-3xl font-bold">
-              {" "}
-              €{selectedVariant?.price}
-            </span>
-            <span className="rounded-md bg-secondary px-2 font-bold text-primary">
-              {salePercent()}%
-            </span>
-          </div>
-          <span className="font-bold text-tertiary-dark">
-            <s>€{selectedVariant?.compare_at_price}</s>
+      <div className="mb-5 flex items-center justify-between md:justify-start md:gap-8 lg:mb-8 lg:flex-col lg:items-start lg:gap-2">
+        <div className="flex items-center gap-4">
+          <span className="text-3xl font-bold"> €{selectedVariant?.price}</span>
+          <span className="rounded-md bg-secondary px-2 font-bold text-primary">
+            {salePercent()}%
           </span>
         </div>
+        <span className="font-bold text-tertiary-dark">
+          <s>€{selectedVariant?.compare_at_price}</s>
+        </span>
+      </div>
       {/* Variants */}
       <div className="space-y-4 md:flex md:items-center md:gap-4 md:space-y-0">
         <div className="flex w-full items-center justify-between rounded-lg p-3 md:basis-6/12 mb-6 ">
@@ -102,7 +101,9 @@ const Product = () => {
             <img src={minusIcon} alt="minus" />
           </button>
 
-          <span data-testid="quantity-text" className="font-bold">{quantity}</span>
+          <span data-testid="quantity-text" className="font-bold">
+            {quantity}
+          </span>
 
           <button
             type="button"
@@ -114,7 +115,7 @@ const Product = () => {
           </button>
         </div>
 
-        <Button handleClick={addItemsToCart}>
+        <Button type="primary" size="lg" handleClick={addItemsToCart}>
           <svg
             width="21"
             height="22"

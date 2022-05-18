@@ -12,6 +12,8 @@ const Cart: FunctionComponent = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const cartItems: ICartItem[] = useAppSelector((state) => state.cart.items);
   const itemCount: number = useAppSelector((state) => state.cart.itemCount);
+
+  const checkout = () => {};
   return (
     <Menu classList="left-1/2 z-10 w-[95%] max-w-md -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20 md:-translate-x-16 lg:top-28 lg:right-0 lg:w-96 lg:translate-x-56">
       <span className="border-secondary-dark-dark block border-b border-solid p-6 font-bold">
@@ -54,7 +56,7 @@ const Cart: FunctionComponent = (): JSX.Element => {
               </div>
             ))}
 
-            <Button>
+            <Button handleClick={checkout} type="primary" size="lg">
               <span>Checkout</span>
             </Button>
           </div>
