@@ -113,15 +113,18 @@ export const product: IProduct = {
 };
 
 const initialState = {
-  product,
+  product: product,
+  isLoading: false,
 };
 
 export const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    setProduct: (state, action:PayloadAction<IProduct>) => {
+    setProduct: (state, action: PayloadAction<IProduct>) => {
+      state.isLoading = true;
       state.product = action.payload;
+      state.isLoading = false;
     },
   },
 });

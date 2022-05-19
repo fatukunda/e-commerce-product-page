@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for <QRCode/> QRCode: Snapshot 1`] = `
+<div
+  className="bg-gray-100 rounded-r-md mb-4 flex flex-col items-center justify-center"
+>
+  <canvas
+    height={128}
+    style={
+      Object {
+        "height": 128,
+        "width": 128,
+      }
+    }
+    width={128}
+  />
+</div>
+`;

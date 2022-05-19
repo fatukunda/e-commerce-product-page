@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for <Dropdown/> Dropdown: Snapshot 1`] = `
+<div
+  className="flex flex-col w-48"
+>
+  <button
+    className="flex bg-white items-center justify-between 
+  btn-sm w-48 text-xs hover:bg-gray-100 text-tertiary-light font-semibold 
+  py-2 px-4  border border-tertiary-light rounded shadow"
+    onClick={[Function]}
+    title="select-filter-btn"
+  >
+    <span
+      title="selected-item"
+    >
+      Option 1
+    </span>
+    <svg
+      style={
+        Object {
+          "height": "24px",
+          "width": "24px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+        fill="currentColor"
+      />
+    </svg>
+  </button>
+</div>
+`;

@@ -48,6 +48,7 @@ const AppSearch: FunctionComponent = (): JSX.Element => {
           </svg>
         </div>
         <input
+          title="search-input"
           type="search"
           id="default-search"
           className="block p-4 pl-10 w-full text-md text-tertiary-light bg-gray-50 rounded-lg border border-gray-300 focus:ring-0 focus:outline-none"

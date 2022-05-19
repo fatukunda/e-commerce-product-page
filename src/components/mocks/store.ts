@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { RootState } from "src/store";
 import { cartSlice } from "src/store/slices/cartSlice";
 import { productSlice } from "src/store/slices/productSlice";
-import {searchSlice} from "src/store/slices/searchSlice";
+import { searchSlice } from "src/store/slices/searchSlice";
 import { sliderSlice } from "src/store/slices/sliderSlice";
 
 export const initialStoreState: RootState = {
@@ -116,6 +116,7 @@ export const initialStoreState: RootState = {
         variant_ids: [32511433474129],
       },
     },
+    isLoading: false
   },
   cart: {
     items: [
@@ -301,9 +302,18 @@ export const initialStoreState: RootState = {
   },
   search: {
     isSearchActive: false,
-    items: [],
-    isSearching: false
-  }
+    items: [
+      {
+        price: 20,
+        image: "https://image-link",
+        vendor: "u3",
+        title: "test product title",
+        id: "1",
+        link: "https://product-link",
+      },
+    ],
+    isSearching: false,
+  },
 };
 const mockStore = () =>
   configureStore({
@@ -311,7 +321,7 @@ const mockStore = () =>
       cart: cartSlice.reducer,
       product: productSlice.reducer,
       slider: sliderSlice.reducer,
-      search: searchSlice.reducer
+      search: searchSlice.reducer,
     },
     preloadedState: initialStoreState,
   });

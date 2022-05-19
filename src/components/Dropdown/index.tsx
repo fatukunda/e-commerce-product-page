@@ -1,4 +1,4 @@
-import Menu from "../Menu/Menu";
+import Menu from "../Menu";
 
 export interface IOption {
   id: number;
@@ -28,9 +28,9 @@ const Dropdown = ({
       <button
         onClick={() => toggleOpen()}
         className={dropdownClass}
-        data-testid="select-filter-btn"
+        title="select-filter-btn"
       >
-        <span>{selectedItem.name}</span>
+        <span title="selected-item">{selectedItem.name}</span>
         {isOpen ? (
           <svg style={{ width: "24px", height: "24px" }} viewBox="0 0 24 24">
             <path
@@ -55,6 +55,7 @@ const Dropdown = ({
                 onClick={() => change(option)}
                 key={option.id}
                 className="border-tertiary-light pb-2 pt-2 hover:bg-gray-100 cursor-pointer"
+                title="option"
               >
                 {option.name}
               </div>

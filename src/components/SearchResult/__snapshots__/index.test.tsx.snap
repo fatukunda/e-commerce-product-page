@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for <SearchResult/> Search Result: Snapshot 1`] = `
+<div
+  className="absolute top-[70px] overflow-auto h-2/3 left-1/2 z-10 w-2/3  -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20  lg:top-24 lg:right-0 "
+>
+  <div
+    className="flex border-secondary-dark-dark block border-b border-solid p-6 font-bold items-center justify-between"
+  >
+    <span
+      className="block font-bold "
+    >
+      Your search results
+    </span>
+    <div>
+      <div
+        className="flex flex-col w-48"
+      >
+        <button
+          className="flex bg-white items-center justify-between 
+  btn-sm w-48 text-xs hover:bg-gray-100 text-tertiary-light font-semibold 
+  py-2 px-4  border border-tertiary-light rounded shadow"
+          onClick={[Function]}
+          title="select-filter-btn"
+        >
+          <span
+            title="selected-item"
+          >
+            Random
+          </span>
+          <svg
+            style={
+              Object {
+                "height": "24px",
+                "width": "24px",
+              }
+            }
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="p-4 flex gap-2 flex-wrap justify-center"
+  >
+    <div
+      className="w-48 bg-white rounded-lg shadow-md dark:border-gray-700"
+    >
+      <img
+        alt="test product title"
+        className="p-8 rounded-t-lg"
+        src="https://image-link"
+      />
+      <div
+        className="px-5 pb-5"
+      >
+        <h5
+          className="text-xs text-tertiary-light"
+        >
+          test product title
+        </h5>
+        <div
+          className="flex justify-between items-center"
+        >
+          <span
+            className="text-l pt-2 font-bold text-gray-900"
+          >
+            €
+            20
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

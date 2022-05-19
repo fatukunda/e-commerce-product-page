@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "src/components/Button";
 
 import plusIcon from "src/assets/images/plus.svg";
@@ -7,14 +7,24 @@ import { IProduct, IVariant } from "src/models/Product";
 import { useAppSelector, useAppDispatch } from "src/store/hooks";
 import { addToCart, ICartItem } from "src/store/slices/cartSlice";
 import QrCode from "src/components/QrCode";
+import { getProduct } from "src/services/productService";
+import { setProduct } from "src/store/slices/productSlice";
 
 const Product = () => {
+  const dispatch = useAppDispatch();
   const [quantity, setQuantity] = useState(1);
   const pdct: IProduct = useAppSelector((state) => state.product.product);
   const [selectedVariant, setSelectedVariant] = useState<IVariant>(
     pdct.variants[0]
   );
-  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const pdct = await getProduct();
+      dispatch(setProduct(pdct));
+    };
+    fetchProduct();
+  }, [dispatch]);
 
   const decrementQuantity = () => {
     if (quantity > 1) {

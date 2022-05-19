@@ -1,6 +1,6 @@
 import { ISearchItem } from "src/models/SearchResult";
 
-interface IItemCardProps {
+export interface IItemCardProps {
   item: ISearchItem;
 }
 
@@ -17,7 +17,7 @@ const ItemCard = ({ item }: IItemCardProps): JSX.Element => {
 
         <div className="flex justify-between items-center">
           <span className="text-l pt-2 font-bold text-gray-900">
-            ${item.price}
+          €{item.price}
           </span>
         </div>
       </div>

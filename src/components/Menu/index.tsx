@@ -1,6 +1,6 @@
 interface IMenuProps {
-  classList: string;
-  children: JSX.Element | JSX.Element[];
+  classList?: string;
+  children?: JSX.Element | JSX.Element[];
 }
 
 const Menu = ({ classList, children }: IMenuProps): JSX.Element => {

@@ -4,7 +4,7 @@ import Button from "../Button";
 import deleteIcon from "../../assets/images/trash.svg";
 import { ICartItem } from "src/store/slices/cartSlice";
 import { removeFromCart } from "src/store/slices/cartSlice";
-import Menu from "../Menu/Menu";
+import Menu from "../Menu";
 
 import { useAppDispatch, useAppSelector } from "src/store/hooks";
 
