@@ -7,7 +7,7 @@ import ItemCard from "../ItemCard";
 import { useAppSelector } from "src/store/hooks";
 import { ISearchItem } from "src/models/SearchResult";
 import Menu from "../Menu";
-import { sort } from "src/services/searchService";
+import { searchProduct } from "src/services/searchService";
 import { useAppDispatch } from "src/store/hooks";
 import { setProducts, setIsSearching } from "src/store/slices/searchSlice";
 
@@ -46,6 +46,7 @@ const SearchResult: FunctionComponent = (): JSX.Element => {
     name: "Random",
   });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const searchTerm: string = useAppSelector((state) => state.search.searchTerm);
   const selectedOptionHandler = (option: IOption) => {
     setSelectedOption(option);
     setIsMenuOpen(false);
@@ -59,7 +60,7 @@ const SearchResult: FunctionComponent = (): JSX.Element => {
 
   useEffect(() => {
     const search = async () => {
-      let sortOption = "";
+      let sortOption = "random";
       if (selectedOption.name === "Ascending") {
         sortOption = "asc";
       } else if (selectedOption.name === "Descending") {
@@ -72,12 +73,12 @@ const SearchResult: FunctionComponent = (): JSX.Element => {
         sortOption = "Random";
       }
       dispatch(setIsSearching(true));
-      const res = await sort(sortOption);
+      const res = await searchProduct(searchTerm, sortOption);
       dispatch(setIsSearching(false));
       dispatch(setProducts(res));
     };
     search();
-  }, [selectedOption, dispatch]);
+  }, [selectedOption, dispatch, searchTerm]);
 
   return (
     <Menu classList="h-2/3 left-1/2 z-10 w-2/3  -translate-x-1/2 rounded-lg bg-white shadow-2xl shadow-tertiary/70 md:right-0 md:top-20  lg:top-24 lg:right-0 ">

@@ -313,6 +313,7 @@ export const initialStoreState: RootState = {
       },
     ],
     isSearching: false,
+    searchTerm: ''
   },
 };
 const mockStore = () =>

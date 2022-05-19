@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
-import { useAppDispatch } from "src/store/hooks";
+import React, { FunctionComponent, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "src/store/hooks";
+import { setSearchTerm } from "src/store/slices/searchSlice";
 import {
   setSearchActive,
   setProducts,
@@ -8,18 +9,20 @@ import {
 import { searchProduct } from "src/services/searchService";
 
 const AppSearch: FunctionComponent = (): JSX.Element => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const searchTerm: string = useAppSelector(
+    (state) => state.search.searchTerm
+  );
   const dispatch = useAppDispatch();
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     let term = event.target.value;
-    setSearchTerm(term);
+    dispatch(setSearchTerm(term))
   };
   useEffect(() => {
     if (searchTerm.length > 1) {
       dispatch(setSearchActive(true));
       const fetchItems = async () => {
         dispatch(setIsSearching(true));
-        const res = await searchProduct(searchTerm);
+        const res = await searchProduct(searchTerm, 'random');
         dispatch(setIsSearching(false));
         dispatch(setProducts(res));
       };

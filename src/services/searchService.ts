@@ -7,27 +7,42 @@ const headers = {
 };
 
 export const searchProduct = async (
-  searchTerm: string
+  searchTerm: string,
+  sortOption: string
 ): Promise<ISearchItem[]> => {
-  const res = await fetch(`${baseUrl}/searchItems?title_like=${searchTerm}`, {
-    headers,
-  });
-  return res.json();
+  const res = await fetch(
+    `${baseUrl}/searchItems?title_like=${searchTerm.trim()}`,
+    {
+      headers,
+    }
+  );
+  const data: ISearchItem[] = await res.json();
+  return sort(data, sortOption);
 };
 
-export const sort = async (sortOption: string): Promise<ISearchItem[]> => {
-  let url = `${baseUrl}/searchItems?_sort=`;
-  let data = null;
-  if (sortOption === "asc") {
-    data = await fetch(`${url}title&_order=asc`, { headers });
-  } else if (sortOption === "desc") {
-    data = await fetch(`${url}title&_order=desc`, { headers });
-  } else if (sortOption === "price-low-high") {
-    data = await fetch(`${url}price&_order=asc`, { headers });
-  } else if (sortOption === "price-high-low") {
-    data = await fetch(`${url}price&_order=desc`, { headers });
-  }else {
-    data = await fetch(`${baseUrl}/searchItems`)
+const sort = (data: ISearchItem[], sortOption: string) => {
+  let res: ISearchItem[] = data;
+  switch (sortOption) {
+    case "asc": {
+      res = data.sort((a, b) => a.title.localeCompare(b.title));
+      break;
+    }
+    case "desc": {
+      res = data.sort((a, b) => b.title.localeCompare(a.title));
+      break;
+    }
+    case "price-low-high": {
+      res = data.sort((a, b) =>
+        a.price.toString().localeCompare(b.price.toString())
+      );
+      break;
+    }
+    case "price-high-low": {
+      res = data.sort((a, b) =>
+        b.price.toString().localeCompare(a.price.toString())
+      );
+      break;
+    }
   }
-  return data?.json();
+  return res;
 };
